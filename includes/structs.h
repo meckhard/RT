@@ -59,6 +59,12 @@ typedef struct	s_sphere
 	int		mat;
 }				t_sphere;
 
+typedef struct	s_objects
+{
+	char	***commands;
+	char	**colours;
+}				t_objects;
+
 typedef struct	s_img
 {
 	void		*img;

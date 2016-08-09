@@ -21,4 +21,35 @@ void			save_col(t_env *env, t_col *col, int x, int y);
 int				key_press(int keycode);
 int				close_window(void);
 
+/*
+ * re_malloc.c
+ */
+
+char			*re_malloc(char *line, size_t size);
+char			***re_3d_malloc(char ***arr, size_t size);
+
+/*
+ * ask_commands.c
+ */
+
+void			intsructions(void);
+int				get_commands(t_objects *ob);
+int				get_line(int fd, char **line);
+char			**check_commands(char *line);
+
+/*
+ * validate_commands.c
+ */
+
+int				validate_shape(char *shape);
+int				validate_coordinates(char **command, int shape);
+int				validate_points(char **command, unsigned int i);
+void			free_commands(t_objects *ob);
+
+/*
+ * print_commands.c
+ */
+
+void			put_2d_array(char **array);
+
 #endif

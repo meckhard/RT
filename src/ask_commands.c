@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/14 14:42:07 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/08/08 11:46:58 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/08/09 08:56:55 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	instructions(void)
 	ft_putstr("Insert finish to escape.\n\n");
 }
 
-int		get_commands(t_shapes *sh)
+int		get_commands(t_objects *ob)
 {
 	char	*line;
 	static unsigned int	i;
 
 	instructions();
-	sh->commands = NULL;
+	ob->commands = NULL;
 	line = NULL;
 	while (42)
 	{
@@ -43,10 +43,10 @@ int		get_commands(t_shapes *sh)
 			if (ft_strcmp(line, "finish") == 0)
 				break ;
 			if (i + 1 % 10 == 0 || i == 0)
-				sh->commands = re_3d_malloc(sh->commands, i);
-			sh->commands[i] = check_commands(line);
-			put_2d_array(sh->commands[i]);
-			if (sh->commands[i] != NULL)
+				ob->commands = re_3d_malloc(ob->commands, i);
+			ob->commands[i] = check_commands(line);
+			put_2d_array(ob->commands[i]);
+			if (ob->commands[i] != NULL)
 				i++;
 		}
 	}
@@ -56,7 +56,7 @@ int		get_commands(t_shapes *sh)
 		return (1);
 	}
 	else
-		sh->commands = NULL;
+		ob->commands = NULL;
 	return (0);
 }
 

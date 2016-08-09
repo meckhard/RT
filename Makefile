@@ -6,7 +6,7 @@
 #    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/23 10:23:24 by ehansman          #+#    #+#              #
-#    Updated: 2016/08/08 11:45:22 by cdebruyn         ###   ########.fr        #
+#    Updated: 2016/08/08 15:40:18 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,17 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)raysphere2.c			\
 	  $(SRC_PATH)ray_functions.c		\
 	  $(SRC_PATH)set_var.c				\
-	  $(SRC_PATH)key_hook.c
+	  $(SRC_PATH)key_hook.c				\
+	  $(SRC_PATH)re_malloc.c			\
+	  $(SRC_PATH)ask_commands.c			\
+	  $(SRC_PATH)validate_commands.c	\
+	  $(SRC_PATH)print_commands.c
 
 OBJ = $(SRC:.c=.o)
+
+BIN = $(INCL:.h=.h.gch)
+
+BIN_2 = $(LIB_INCL:.h=.h.gch)
 
 define colorecho
 	@tput setaf 11
@@ -52,20 +60,20 @@ $(NAME): qme
 	@make -C libft/ re
 	@clang $(C_FLAGS) -c $(SRC) -I $(INCL)
 	@mv *.o src/
-	@$(call colorecho, "Library hass successfully compiled and object \
+	@$(call colorecho, "Library has successfully compiled and object \
 		files have been created and moved to src/")
 	@clang $(C_FLAGS) $(OBJ) $(ATTACH) $(LIB_INCL) $(LIB_A)
-	@mv ./a.out ./RTv1
+	@mv ./a.out ./rt
 	@clear
 	@$(call colorecho, "RT has successfully compiled.\n")
-	@rm -Rf $(OBJ)
+	@rm -Rf $(OBJ) $(BIN) $(BIN_2)
 
 clean:
-	@/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ) $(BIN) $(BIN_2)
 	@make -C libft/ clean
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME) $(LIB_A)
 	@make -C libft/ fclean
 
 re: fclean all
@@ -75,7 +83,9 @@ norme:
 
 q:
 	@clang -I lbft/ -c $(SRC)
-	@clang $(C_FLAGS) -o $(NAME) $(OBJ) $(ATTACH)
+	@mv *.o src/
+	@clang $(C_FLAGS) $(OBJ) $(ATTACH) $(LIB_INCL) $(LIB_A)
+	@mv ./a.out ./rt
 	@make clean
 
 run:
