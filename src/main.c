@@ -6,7 +6,7 @@
 /*   By: meckhard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 14:42:48 by meckhard          #+#    #+#             */
-/*   Updated: 2016/08/09 09:02:14 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/08/09 12:49:40 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int		main(void)
 	t_env		env;
 	t_objects	ob;
 
+	get_commands(&ob);
 	env.mlx = mlx_init();
 	env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, "rtv1");
-	get_commands(&ob);
 	env.img.img = mlx_new_image(env.mlx, WIN_X, WIN_Y);
 	env.img.data =
 	mlx_get_data_addr(env.img.img, &env.img.bpp, &env.img.s, &env.img.e);
