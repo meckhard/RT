@@ -107,13 +107,11 @@ void	scale(t_env *env, t_ray *r, float t)
 void	main_sphere_loop(t_env *env, t_ray *r, t_col *col)
 {
 	int		i;
-	int		level;
 	float	t;
 
 	env->coef = 1.0;
-	level = 0;
 	get_input(env);
-	while ((env->coef > 0.0f) && (level < 15))
+	while ((env->coef > 0.0f)
 	{
 		t = 20000.0f;
 		env->current_sphere = -1;
