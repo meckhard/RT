@@ -77,6 +77,21 @@ typedef struct	s_img
 	int			y;
 }				t_img;
 
+/*typedef struct    s_obj
+{
+	int			num_mats;
+	t_mat		*mats;
+	int			num_lights;
+	t_light		*lights;
+	int			num_spheres;
+	t_sphere	*spheres;
+	int         cur_sphere;
+	t_mat		cur_mat;
+	t_vec		normal;
+	t_vec		new_start;
+	t_col		col;
+}				t_obj; */
+
 typedef struct	s_env
 {
 	t_mat		materials[3];
