@@ -6,7 +6,7 @@
 /*   By: meckhard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/11 12:28:09 by meckhard          #+#    #+#             */
-/*   Updated: 2016/08/12 09:06:35 by meckhard         ###   ########.fr       */
+/*   Updated: 2016/08/12 15:00:55 by meckhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void	light_point(t_env *env, t_col *col)
 			j++;
 			continue;
 		}
-		light_ray(env, col, t, &dist);
+//		if (cheak_shaddow(env, t, dist, &light_ray) == 0)
+			light_ray(env, col, t, &dist);
 		j++;
 	}
 }

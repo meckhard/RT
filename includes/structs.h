@@ -82,9 +82,9 @@ typedef struct    s_obj
 	t_mat       materials[3];
 	t_light     lights[3];
 	t_sphere    spheres[3];
-//	int			num_mats;
-//	int			num_lights;
-//	int			num_spheres;
+	int			num_mats;
+	int			num_lights;
+	int			num_spheres;
 	int         current_sphere;
 	t_mat		current_mat;
 	t_light		current_light;

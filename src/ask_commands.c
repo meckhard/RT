@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/14 14:42:07 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/08/09 08:56:55 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/08/12 12:55:55 by meckhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	instructions(void)
 	ft_putstr("Please follow the instructions to get the desired output!\n");
 	ft_putstr("Coordinates should be specified as such...\n");
 	ft_putstr("Shape, centre coordinates(x, y, z), radius, height eg: sphere "
-			"42 42 42 20 30\n\n");
+			"42 42 42 20\n\n");
 	ft_putstr("Please enter the coordinates as specified for the "
 			"specific shapes.\n\n");
 	ft_putstr("For a sphere:		'sphere x y z radius'.\n");
