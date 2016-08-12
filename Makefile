@@ -6,7 +6,7 @@
 #    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/23 10:23:24 by ehansman          #+#    #+#              #
-#    Updated: 2016/08/08 15:40:18 by cdebruyn         ###   ########.fr        #
+#    Updated: 2016/08/12 16:17:02 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,11 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)ray_functions.c		\
 	  $(SRC_PATH)set_var.c				\
 	  $(SRC_PATH)key_hook.c				\
+	  $(SRC_PATH)ft_atoi_shape.c		\
 	  $(SRC_PATH)re_malloc.c			\
 	  $(SRC_PATH)ask_commands.c			\
+	  $(SRC_PATH)ask_commands2.c		\
+	  $(SRC_PATH)ask_commands4.c		\
 	  $(SRC_PATH)validate_commands.c	\
 	  $(SRC_PATH)print_commands.c
 

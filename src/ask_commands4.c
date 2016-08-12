@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_commands.c                                   :+:      :+:    :+:   */
+/*   ask_commands4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/14 16:51:10 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/08/12 15:45:10 by cdebruyn         ###   ########.fr       */
+/*   Created: 2016/08/12 14:25:41 by cdebruyn          #+#    #+#             */
+/*   Updated: 2016/08/12 16:12:30 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rtv1.h"
 
-void	put_2d_array(char **array)
+void	ft_objects(t_objects *ob)
 {
-	unsigned int			j;
-
-	j = 0;
-	while (array[j] && array[j] != NULL)
-	{
-		ft_putstr(array[j]);
-		j++;
-	}
-	ft_putchar('\n');
+	ob->objects = (char ****)malloc(sizeof(char ***) * 2);
+	ob->objects[0] = ob->commands;
+	ob->objects[1] = ob->lighting;
 }

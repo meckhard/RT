@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/14 17:21:59 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/08/09 09:02:19 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/08/12 16:41:49 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		validate_points(char **command, unsigned int i)
 	j = 1;
 	while (command[j] && (ft_strcmp(command[j], "\0") != 0)  && j < i)
 	{
-		if (ft_atoi(command[j]) == -1)
+		if (ft_atoi_shape(command[j]) == -1)
 		{
 			ft_putstr(R_MESS07);
 			return (0);
@@ -73,6 +73,11 @@ void	free_commands(t_objects *ob)
 	{
 		free(ob->commands);
 		ob->commands = NULL;
+	}
+	if (ob->lighting != NULL)
+	{
+		free(ob->lighting);
+		ob->lighting = NULL;
 	}
 	if (ob->colours != NULL)
 	{

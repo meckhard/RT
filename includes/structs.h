@@ -61,7 +61,9 @@ typedef struct	s_sphere
 
 typedef struct	s_objects
 {
+	char	****objects;
 	char	***commands;
+	char	***lighting;
 	char	**colours;
 }				t_objects;
 
