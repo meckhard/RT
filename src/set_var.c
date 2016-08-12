@@ -6,7 +6,7 @@
 /*   By: meckhard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/12 09:12:40 by meckhard          #+#    #+#             */
-/*   Updated: 2016/08/08 13:08:38 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/08/12 09:10:35 by meckhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	reset_col(t_col *col)
 
 void	get_input(t_env *env)
 {
-	set_mat(env->materials);
-	set_sphere(env->spheres);
-	set_light(env->lights);
+	set_mat(env->obj.materials);
+	set_sphere(env->obj.spheres);
+	set_light(env->obj.lights);
 }
