@@ -6,7 +6,7 @@
 #    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/23 10:23:24 by ehansman          #+#    #+#              #
-#    Updated: 2016/08/12 16:17:02 by cdebruyn         ###   ########.fr        #
+#    Updated: 2016/08/13 09:57:28 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ endef
 
 all: $(NAME)
 
-$(NAME): qme
+$(NAME):
 	@$(call colorecho, "\nPreparing to compile raytracer...")
 	@make -C libft/ re
 	@clang $(C_FLAGS) -c $(SRC) -I $(INCL)
@@ -95,7 +95,3 @@ run:
 	@./rt map
 
 qr: q run
-
-qme: 
-	@rm -Rf author
-	@whoami > author
