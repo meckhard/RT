@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/14 14:42:07 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/08/12 12:55:55 by meckhard         ###   ########.fr       */
+/*   Updated: 2016/08/15 07:34:35 by meckhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	instructions(void)
 	ft_putstr("For a cylinder:		'cylinder x y z radius height'.\n");
 	ft_putstr("For a plane:		'plane x y angle'.\n");
 	ft_putstr("For a cone:		'cone x y z radius height'.\n\n");
-	ft_putstr("Insert finish to escape.\n\n");
+	ft_putstr("Insert finish to continue.\n\n");
 }
 
 int		get_commands(t_objects *ob)
 {
-	char	*line;
+	char				*line;
 	static unsigned int	i;
 
 	instructions();
