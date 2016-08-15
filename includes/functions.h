@@ -20,6 +20,7 @@ void			main_sphere_loop(t_env *env, t_ray *r, t_col *col);
 void			save_col(t_env *env, t_col *col, int x, int y);
 int				key_press(int keycode);
 int				close_window(void);
+//int				cheak_shaddow(env, t, dist, &light_ray);
 
 /*
  * re_malloc.c
