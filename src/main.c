@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: meckhard <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/04 14:42:48 by meckhard          #+#    #+#             */
-/*   Updated: 2016/08/15 14:50:29 by ehansman         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/rtv1.h"
 
 void	sphere_raytrace(t_env *env)
@@ -46,6 +34,7 @@ int		main(void)
 	t_objects	ob;
 
 	get_commands(&ob);
+	get_commands2(&ob);
 	env.mlx = mlx_init();
 	env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, "rtv1");
 	env.img.img = mlx_new_image(env.mlx, WIN_X, WIN_Y);

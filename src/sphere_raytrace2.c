@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sphere_raytrace2.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: meckhard <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/11 12:28:09 by meckhard          #+#    #+#             */
-/*   Updated: 2016/08/10 14:35:16 by meckhard         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/rtv1.h"
 
 void	save_col(t_env *env, t_col *col, int x, int y)
@@ -38,15 +26,15 @@ void	light_ray(t_env *env, t_col *col, float t, t_vec *dist)
 	t_ray	light_ray;
 	float	lambert;
 
-	light_ray.start = env->new_start;
+	light_ray.start = env->obj.new_start;
 	light_ray.dir = vector_scale((1 / t), dist);
-	lambert = vector_dot(&light_ray.dir, &env->n) * env->coef;
-	col->red += lambert * env->current_light.intensity.red
-	* env->current_mat.diffuse.red;
-	col->green += lambert * env->current_light.intensity.green
-	* env->current_mat.diffuse.green;
-	col->blue += lambert * env->current_light.intensity.blue
-	* env->current_mat.diffuse.blue;
+	lambert = vector_dot(&light_ray.dir, &env->obj.n) * env->coef;
+	col->red += lambert * env->obj.current_light.intensity.red
+	* env->obj.current_mat.diffuse.red;
+	col->green += lambert * env->obj.current_light.intensity.green
+	* env->obj.current_mat.diffuse.green;
+	col->blue += lambert * env->obj.current_light.intensity.blue
+	* env->obj.current_mat.diffuse.blue;
 }
 
 void	light_point(t_env *env, t_col *col)
@@ -55,14 +43,15 @@ void	light_point(t_env *env, t_col *col)
 	float	t;
 	t_vec	dist;
 
-	env->current_mat =
-	env->materials[env->spheres[env->current_sphere].shape.material];
+	env->obj.current_mat =
+	env->obj.materials[env->obj.spheres[env->obj.current_sphere].shape.material];
+
 	j = 0;
 	while (j < 3)
 	{
-		env->current_light = env->lights[j];
-		dist = vector_sub(&env->current_light.pos, &env->new_start);
-		if (vector_dot(&env->n, &dist) <= 0.0f)
+		env->obj.current_light = env->obj.lights[j];
+		dist = vector_sub(&env->obj.current_light.pos, &env->obj.new_start);
+		if (vector_dot(&env->obj.n, &dist) <= 0.0f)
 		{
 			j++;
 			continue;
@@ -73,7 +62,8 @@ void	light_point(t_env *env, t_col *col)
 			j++;
 			continue;
 		}
-		light_ray(env, col, t, &dist);
+//		if (cheak_shaddow(env, t, dist, &light_ray) == 0)
+			light_ray(env, col, t, &dist);
 		j++;
 	}
 }
@@ -84,12 +74,12 @@ void	linda(t_env *env, t_ray *r, t_col *col)
 	t_vec	tmp;
 
 	env->temp = 1.0f / sqrtf(env->temp);
-	env->n = vector_scale(env->temp, &env->n);
+	env->obj.n = vector_scale(env->temp, &env->obj.n);
 	light_point(env, col);
-	env->coef *= env->current_mat.reflect;
-	r->start = env->new_start;
-	reflect = 2.0f * vector_dot(&r->dir, &env->n);
-	tmp = vector_scale(reflect, &env->n);
+	env->coef *= env->obj.current_mat.reflect;
+	r->start = env->obj.new_start;
+	reflect = 2.0f * vector_dot(&r->dir, &env->obj.n);
+	tmp = vector_scale(reflect, &env->obj.n);
 	r->dir = vector_sub(&r->dir, &tmp);
 }
 
@@ -98,10 +88,10 @@ void	scale(t_env *env, t_ray *r, float t)
 	t_vec	scaled;
 
 	scaled = vector_scale(t, &r->dir);
-	env->new_start = vector_add(&r->start, &scaled);
-	env->n =
-	vector_sub(&env->new_start, &env->spheres[env->current_sphere].shape.pos);
-	env->temp = vector_dot(&env->n, &env->n);
+	env->obj.new_start = vector_add(&r->start, &scaled);
+	env->obj.n =
+	vector_sub(&env->obj.new_start, &env->obj.spheres[env->obj.current_sphere].shape.pos);
+	env->temp = vector_dot(&env->obj.n, &env->obj.n);
 }
 
 void	main_sphere_loop(t_env *env, t_ray *r, t_col *col)
@@ -114,15 +104,15 @@ void	main_sphere_loop(t_env *env, t_ray *r, t_col *col)
 	while (env->coef > 0.0f)
 	{
 		t = 20000.0f;
-		env->current_sphere = -1;
+		env->obj.current_sphere = -1;
 		i = 0;
 		while (i < 3)
 		{
-			if (raysphere(r, &env->spheres[i], &t))
-				env->current_sphere = i;
+			if (raysphere(r, &env->obj.spheres[i], &t))
+				env->obj.current_sphere = i;
 			i++;
 		}
-		if (env->current_sphere == -1)
+		if (env->obj.current_sphere == -1)
 			break ;
 		scale(env, r, t);
 		if (env->temp == 0)

@@ -1,14 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/06/23 10:23:24 by ehansman          #+#    #+#              #
-#    Updated: 2016/08/15 14:49:00 by ehansman         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 NAME = rt
 
@@ -36,8 +25,11 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)ray_functions.c		\
 	  $(SRC_PATH)set_var.c				\
 	  $(SRC_PATH)key_hook.c				\
+	  $(SRC_PATH)ft_atoi_shape.c		\
 	  $(SRC_PATH)re_malloc.c			\
 	  $(SRC_PATH)ask_commands.c			\
+	  $(SRC_PATH)ask_commands2.c		\
+	  $(SRC_PATH)ask_commands4.c		\
 	  $(SRC_PATH)validate_commands.c	\
 	  $(SRC_PATH)print_commands.c
 
@@ -55,7 +47,7 @@ endef
 
 all: $(NAME)
 
-$(NAME): qme
+$(NAME):
 	@$(call colorecho, "\nPreparing to compile raytracer...")
 	@make -C libft/ re
 	@clang $(C_FLAGS) -c $(SRC) -I $(INCL)
@@ -92,7 +84,3 @@ run:
 	@./rt map
 
 qr: q run
-
-qme: 
-	@rm -Rf author
-	@whoami > author

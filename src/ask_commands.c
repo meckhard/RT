@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ask_commands.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/14 14:42:07 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/08/09 08:56:55 by cdebruyn         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/rtv1.h"
 
 void	instructions(void)
@@ -17,19 +5,19 @@ void	instructions(void)
 	ft_putstr("Please follow the instructions to get the desired output!\n");
 	ft_putstr("Coordinates should be specified as such...\n");
 	ft_putstr("Shape, centre coordinates(x, y, z), radius, height eg: sphere "
-			"42 42 42 20 30\n\n");
+			"42 42 42 20\n\n");
 	ft_putstr("Please enter the coordinates as specified for the "
 			"specific shapes.\n\n");
 	ft_putstr("For a sphere:		'sphere x y z radius'.\n");
 	ft_putstr("For a cylinder:		'cylinder x y z radius height'.\n");
 	ft_putstr("For a plane:		'plane x y angle'.\n");
 	ft_putstr("For a cone:		'cone x y z radius height'.\n\n");
-	ft_putstr("Insert finish to escape.\n\n");
+	ft_putstr("Insert finish to continue.\n\n");
 }
 
 int		get_commands(t_objects *ob)
 {
-	char	*line;
+	char				*line;
 	static unsigned int	i;
 
 	instructions();

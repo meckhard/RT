@@ -61,7 +61,9 @@ typedef struct	s_sphere
 
 typedef struct	s_objects
 {
+	char	****objects;
 	char	***commands;
+	char	***lighting;
 	char	**colours;
 }				t_objects;
 
@@ -77,18 +79,26 @@ typedef struct	s_img
 	int			y;
 }				t_img;
 
+typedef struct    s_obj
+{
+	t_mat       materials[3];
+	t_light     lights[3];
+	t_sphere    spheres[3];
+	int			num_mats;
+	int			num_lights;
+	int			num_spheres;
+	int         current_sphere;
+	t_mat		current_mat;
+	t_light		current_light;
+	t_vec		n;
+	t_vec		new_start;
+}				t_obj;
+
 typedef struct	s_env
 {
-	t_mat		materials[3];
-	t_sphere	spheres[3];
-	t_light		lights[3];
-	t_light		current_light;
-	t_vec		new_start;
-	t_mat		current_mat;
-	int			current_sphere;
+	t_obj		obj;
 	float		coef;
 	float		temp;
-	t_vec		n;
 	void		*mlx;
 	void		*win;
 	t_img		img;

@@ -20,6 +20,13 @@ void			main_sphere_loop(t_env *env, t_ray *r, t_col *col);
 void			save_col(t_env *env, t_col *col, int x, int y);
 int				key_press(int keycode);
 int				close_window(void);
+//int				cheak_shaddow(env, t, dist, &light_ray);
+
+/*
+ * ft_atoi_shape.c
+ */
+
+int				ft_atoi_shape(const char *str);
 
 /*
  * re_malloc.c
@@ -36,6 +43,20 @@ void			intsructions(void);
 int				get_commands(t_objects *ob);
 int				get_line(int fd, char **line);
 char			**check_commands(char *line);
+
+/*
+ * ask_commands2.c
+ */
+
+void			instructions2(void);
+int				get_commands2(t_objects *ob);
+char			**check_commands2(char *line);
+
+/*
+ * ask_commands4.c
+ */
+
+void			ft_objects(t_objects *ob);
 
 /*
  * validate_commands.c
