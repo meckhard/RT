@@ -49,3 +49,22 @@ void	get_camera(const int fd, char *line, t_env *env)
 	}
 	free_temp(&temp);
 }
+
+void	print_environment(t_env *env)
+{
+	printf("env->r.start.z:			%f\n", env->r.start.z);
+	printf("env->r.dir.x:			%f\n", env->r.dir.x);
+	printf("env->r.dir.y:			%f\n", env->r.dir.y);
+	printf("env->r.dir.z:			%f\n", env->r.dir.z);
+	printf(".\n");
+//	while (env->l)
+//	{
+	printf("env->l->pos.x:			%f\n", env->l->pos.x);
+	printf("env->l->pos.y:			%f\n", env->l->pos.y);
+	printf("env->l->pos.z:			%f\n", env->l->pos.z);
+	printf("env->l->intensity.r:		%f\n", env->l->intensity.r);
+	printf("env->l->intensity.g:		%f\n", env->l->intensity.g);
+	printf("env->l->intensity.b:		%f\n", env->l->intensity.b);
+	printf(".\n");
+	env->l = env->l->next;
+//	}
