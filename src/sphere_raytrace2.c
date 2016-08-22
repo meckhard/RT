@@ -62,7 +62,7 @@ void	light_point(t_env *env, t_col *col)
 			j++;
 			continue;
 		}
-//		if (cheak_shaddow(env, t, dist, &light_ray) == 0)
+		if (check_shadow(env, t, dist, &light_ray) == 0)
 			light_ray(env, col, t, &dist);
 		j++;
 	}

@@ -20,7 +20,7 @@ void			main_sphere_loop(t_env *env, t_ray *r, t_col *col);
 void			save_col(t_env *env, t_col *col, int x, int y);
 int				key_press(int keycode);
 int				close_window(void);
-//int				cheak_shaddow(env, t, dist, &light_ray);
+int				check_shadow(t_env *env, float t, t_vec dist, t_ray *light_ray);
 
 /*
  * ft_atoi_shape.c
