@@ -31,7 +31,9 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)ask_commands2.c		\
 	  $(SRC_PATH)ask_commands4.c		\
 	  $(SRC_PATH)validate_commands.c	\
-	  $(SRC_PATH)print_commands.c
+	  $(SRC_PATH)print_commands.c		\
+	  $(SRC_PATH)shadows.c
+	
 
 OBJ = $(SRC:.c=.o)
 

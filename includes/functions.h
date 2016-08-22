@@ -34,7 +34,8 @@ void			ft_light_add(t_light **alst, t_light *new);
  */
 
 void			read_map(const int fd, t_env *env);
-void			search_map(const int fd, char *line, t_env *env, t_light *a, t_light *b, t_sphere *d, t_sphere *e);
+void			search_map(const int fd, char *line, t_env *env, t_light *a, t_light *b,
+	   	t_sphere *d, t_sphere *e);
 void			get_camera(const int fd, char *line, t_env *env);
 void			get_light(const int fd, char *line, t_light *l);
 void			get_material(const int fd, char *line, t_material *m);
@@ -47,6 +48,8 @@ void			reverse_lights(t_env *env, t_light *a, t_light *b, t_light *c);
 void			reverse_spheres(t_env *env, t_sphere *a, t_sphere *b, t_sphere *c);
 //void			reverse_lights(t_env *env, t_light *l);
 //void			reverse_spheres(t_env *env, t_sphere *sp);
+//int				check_shadow(t_env *env, float t, t_vec dist, t_ray *light_ray);
+
 
 /*
  * ft_atoi_shape.c
