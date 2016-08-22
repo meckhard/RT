@@ -19,21 +19,13 @@ LIB_INCL = -L. libft/libft.h
 
 LIB_A = -lm libft/libft.a
 
-SRC = $(SRC_PATH)main.c					\
-	  $(SRC_PATH)sphere_raytrace2.c		\
-	  $(SRC_PATH)raysphere2.c			\
-	  $(SRC_PATH)ray_functions.c		\
-	  $(SRC_PATH)set_var.c				\
-	  $(SRC_PATH)key_hook.c				\
-	  $(SRC_PATH)ft_atoi_shape.c		\
-	  $(SRC_PATH)re_malloc.c			\
-	  $(SRC_PATH)ask_commands.c			\
-	  $(SRC_PATH)ask_commands2.c		\
-	  $(SRC_PATH)ask_commands4.c		\
-	  $(SRC_PATH)validate_commands.c	\
-	  $(SRC_PATH)print_commands.c		\
-	  $(SRC_PATH)shadows.c
-	
+SRC =	$(SRC_PATH)main.c					\
+		$(SRC_PATH)read_map.c				\
+		$(SRC_PATH)get_objects.c			\
+		$(SRC_PATH)reverse_lists.c			\
+		$(SRC_PATH)object_lists.c			\
+		$(SRC_PATH)print_map.c				\
+		$(SRC_PATH)free_map.c				\
 
 OBJ = $(SRC:.c=.o)
 
@@ -60,14 +52,14 @@ $(NAME):
 	@mv ./a.out ./rt
 	@clear
 	@$(call colorecho, "RT has successfully compiled.\n")
-	@rm -Rf $(OBJ) $(BIN) $(BIN_2)
+	@rm -rf $(OBJ)
 
 clean:
-	@/bin/rm -f $(OBJ) $(BIN) $(BIN_2)
+	@rm -rf $(OBJ)
 	@make -C libft/ clean
 
 fclean: clean
-	@/bin/rm -f $(NAME) $(LIB_A)
+	@rm -rf $(NAME)
 	@make -C libft/ fclean
 
 re: fclean all
