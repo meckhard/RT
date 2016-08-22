@@ -20,7 +20,6 @@
 # define ORANGE	0xFF5733
 # define YELLOW	0xFFFF00
 
-# define E_MESS07	"\e[31mError: Integer is undefined.\n"
 # define R_MESS01	"\e[31mError: Please define a map. './rtv1 maps/..'\n"
 # define R_MESS02	"\e[31mError: Command not found.\n"
 # define R_MESS03	"\e[31mError: Command failed.\n"

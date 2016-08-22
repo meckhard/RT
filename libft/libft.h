@@ -6,7 +6,7 @@
 /*   By: meckhard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/21 11:20:43 by meckhard          #+#    #+#             */
-/*   Updated: 2016/06/18 14:27:15 by meckhard         ###   ########.fr       */
+/*   Updated: 2016/08/17 08:02:37 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,24 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "libc.h"
+
+# define E_MESS01	"\e[31mError:	Number of bytes to copy is undefined.\n"
+# define E_MESS02	"\e[31mError:	String is a pointer to NULL.\n"
+# define E_MESS03	"\e[31mError:	No bytes are written.\n"
+# define E_MESS04	"\e[31mError:	String is not NULL terminated.\n"
+# define E_MESS05	"\e[31mError:	Compared strings overlap.\n"
+# define E_MESS06	"\e[31mError:	Character is not part of the standard ascii table.\n"
+# define E_MESS07	"\e[31mError:	Integer is undefined.\n"
+# define E_MESS08	"\e[31mError:	Array is a pointer to NULL.\n"
+# define E_MESS09	"\e[31mError:	String is just comprised of padding.\n"
+
+typedef struct	s_split
+{
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
+	unsigned int	l;
+}				t_split;
 
 typedef struct		s_list
 {
@@ -53,8 +71,11 @@ typedef struct		s_mods
     int	jay;
 }					t_mods;
 
+char				**ft_strnew2(size_t size);
+float				ft_atof(const char *str);
+char				*rm_padding(char *str);
 int					get_next_line(const int fd, char **line);
-char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit(char *str, char c);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
 char				*ft_itoa(int n);

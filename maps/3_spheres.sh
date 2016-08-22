@@ -1,0 +1,68 @@
+start
+	CAMERA
+	R.Z -2000
+	R.D.X 0
+	R.D.Y 0
+	R.D.Z 1
+.
+	LIGHT
+	P.X 0
+	P.Y 240
+	P.Z -100
+	I.R 1
+	I.G 1
+	I.B 1
+.
+	LIGHT
+	P.X 320
+	P.Y 300
+	P.Z -100
+	I.R 0.6
+	I.G 0.7
+	I.B 1
+.
+	LIGHT
+	P.X 600
+	P.Y 0
+	P.Z -100
+	I.R 0.3
+	I.G 0.5
+	I.B 1
+.
+	OBJECT
+	SPHERE
+	P.X 200
+	P.Y 300
+	P.Z 0
+	RADIUS 20
+	MATERIAL
+	D.R 1
+	D.G 0 
+	D.B 0
+	REFLECT 0.2
+.
+	OBJECT
+	SPHERE
+	P.X 400
+	P.Y 50
+	P.Z 0
+	RADIUS 30
+	MATERIAL
+	D.R 0
+	D.G 1
+	D.B 0
+	REFLECT 0.5
+.
+	OBJECT
+	SPHERE
+	P.X 300
+	P.Y 100
+	P.Z 0
+	RADIUS 20
+	MATERIAL
+	D.R 0
+	D.G 0
+	D.B 1
+	REFLECT 0.9
+.
+end

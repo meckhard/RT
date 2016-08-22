@@ -6,7 +6,7 @@
 #    By: meckhard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/21 10:10:24 by meckhard          #+#    #+#              #
-#    Updated: 2016/06/18 14:26:55 by meckhard         ###   ########.fr        #
+#    Updated: 2016/08/17 08:00:57 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libft.a
 
 SRC = ft_memset.c			   \
 	  ft_itoa.c				   \
+	  ft_atof.c				   \
 	  ft_bzero.c			   \
 	  ft_memcpy.c			   \
 	  ft_memccpy.c			   \
@@ -69,13 +70,16 @@ SRC = ft_memset.c			   \
 	  ft_lstdel.c			   \
 	  ft_lstadd.c			   \
 	  ft_lstiter.c			   \
+	  ft_strnew2.c			   \
 	  ft_lstmap.c			   \
+	  rm_padding.c				\
 	  get_next_line.c			\
 		ft_printf_format.c		\
 		 ft_printf_conv.c 		\
 			ft_printf_out.c		\
  		ft_printf_flags.c	 	\
 		ft_printf.c
+
 SRCO = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror

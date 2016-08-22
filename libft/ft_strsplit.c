@@ -3,61 +3,72 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meckhard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/21 11:14:28 by meckhard          #+#    #+#             */
-/*   Updated: 2016/05/21 11:14:32 by meckhard         ###   ########.fr       */
+/*   Created: 2016/08/01 11:29:41 by cdebruyn          #+#    #+#             */
+/*   Updated: 2016/08/16 13:22:59 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_words(char const *s, char c)
+static unsigned int	ft_char(char *str, char c)
 {
-	int		i;
-	size_t	size;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	size = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
+	j = 0;
+	while (str[i] != '\0')
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		if (s[i])
-		{
-			while (s[i] && s[i] != c)
-				i++;
-			size++;
-		}
+		if (str[i] == c)
+			j++;
+		i++;
 	}
-	return (size);
+	return (j);
 }
 
-char			**ft_strsplit(char const *s, char c)
+static void			split_main(t_split *sp, char *temp, char **split, char c)
 {
-	char	**tab;
-	size_t	size;
-	int		i;
-	int		start;
-
-	if (!s || !(tab = (char **)malloc(sizeof(char *) * (ft_words(s, c) + 1))))
-		return (NULL);
-	i = 0;
-	size = 0;
-	while (s[i])
+	while (temp[sp->j] != '\0' && temp[sp->j])
 	{
-		if (s[i] == c)
-			i++;
-		else
+		sp->k = sp->j;
+		while (temp[sp->k] != c && temp[sp->k] != '\0')
 		{
-			start = i;
-			while (s[i] && s[i] != c)
-				i++;
-			tab[size++] = ft_strsub(s, start, i - start);
+			sp->k++;
 		}
+		split[sp->i] = ft_strnew(sp->k - sp->j);
+		sp->k = sp->j;
+		sp->l = 0;
+		while (temp[sp->k] != c && temp[sp->k] != '\0')
+		{
+			split[sp->i][sp->l] = temp[sp->k];
+			sp->k++;
+			sp->l++;
+		}
+		split[sp->i][sp->l] = '\0';
+		sp->j = sp->k;
+		sp->i++;
+		sp->j++;
 	}
-	tab[size] = NULL;
-	return (tab);
+}
+
+char				**ft_strsplit(char *str, char c)
+{
+	char	*temp;
+	char	**split;
+	t_split	sp;
+
+	if (str == NULL)
+		return (NULL);
+	sp.j = 0;
+	temp = rm_padding(str);
+	if (temp == NULL)
+		return (NULL);
+	sp.i = ft_char(temp, c);
+	split = ft_strnew2(sp.i + 2);
+	sp.i = 0;
+	split_main(&sp, temp, split, c);
+	split[sp.i] = "\0";
+	return (split);
 }
