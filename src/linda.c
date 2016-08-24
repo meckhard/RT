@@ -31,7 +31,7 @@ void	light_ray(t_env *env, t_col *col, float t, t_vec *dist)
 	float	lambert;
 
 	light_ray.start = env->r->new_start;
-	printf("new_start:	%f\n", env->r->new_start.x);
+//	printf("new_start:	%f\n", env->r->new_start.x);
 	light_ray.dir = vector_scale((1 / t), dist);
 	lambert = vector_dot(&light_ray.dir, &env->normal) * env->coef;
 	col->r += lambert * env->l[0]->intensity.r * env->s->sp[0]->m.diffuse.r;
@@ -113,7 +113,7 @@ void	main_sphere_loop(t_env *env, t_col *col)
 			if (sphere_intersect(env, &t) == 1)
 			{
 //				env->s->sp[1] = env->s->sp[0];	
-//				printf("%f\n", t);
+				printf("%f, ", t);
 				break ;
 			}
 			else
