@@ -31,10 +31,11 @@ void	light_ray(t_env *env, t_col *col, float t, t_vec *dist)
 	float	lambert;
 
 	light_ray.start = env->r->new_start;
+	printf("new_start:	%f\n", env->r->new_start.x);
 	light_ray.dir = vector_scale((1 / t), dist);
 	lambert = vector_dot(&light_ray.dir, &env->normal) * env->coef;
 	col->r += lambert * env->l[0]->intensity.r * env->s->sp[0]->m.diffuse.r;
-	printf("red:	%f\n",env->s->sp[0]->m.diffuse.r);
+//	printf("red:	%f\n",env->s->sp[0]->m.diffuse.r);
 	col->g += lambert * env->l[0]->intensity.g * env->s->sp[0]->m.diffuse.g;
 	col->b += lambert * env->l[0]->intensity.b * env->s->sp[0]->m.diffuse.b;
 }
@@ -48,6 +49,7 @@ void	light_point(t_env *env, t_col *col)
 	while (env->l[0])
 	{
 		dist = vector_sub(&env->l[0]->pos, &env->r->new_start);
+//		printf("new_start:	%f\n", env->r->new_start.x);
 		if (vector_dot(&env->normal, &dist) <= 0.0f)
 		{
 			env->l[0] = env->l[0]->next;	
@@ -59,11 +61,10 @@ void	light_point(t_env *env, t_col *col)
 			env->l[0] = env->l[0]->next;
 			continue;
 		}
-		reset_col(col);
+//		reset_col(col);
 //		if (cheak_shaddow(env, t, dist, &light_ray) == 0)
 		light_ray(env, col, t, &dist);
 		env->l[0] = env->l[0]->next;
-		break ;
 	}
 }
 
@@ -75,6 +76,7 @@ void	linda(t_env *env, t_col *col)
 
 	point = vector_dot(&env->normal, &env->normal);
 	point = 1.0f / sqrtf(point);
+//	printf("point:	%f\n", point);
 	env->normal = vector_scale(point, &env->normal);
 	light_point(env, col);
 //	reset_col(col);
