@@ -6,7 +6,7 @@
 /*   By: lhamlyn <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 10:57:54 by lhamlyn           #+#    #+#             */
-/*   Updated: 2016/09/02 18:05:04 by lhamlyn          ###   ########.fr       */
+/*   Updated: 2016/09/02 18:50:21 by lhamlyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,14 @@ int		cylinder_intersect(t_ray *ray, t_cylinder *cyl, float *t)
 		return (0);
 	else
 	{
-		printf("first=%f\n",(-rs.b-sqrt(rs.discr)));
 		t0 = (rs.b - sqrt(rs.discr)) / (2 * rs.a);
 		t1 = (rs.b + sqrt(rs.discr)) / (2 * rs.a);
 		if (t0 < t1 && t1 > 0)
 		{
-			printf("bigger\n");
 			t0 = t1;
 		}
-		printf("t0=%f\n",t0);
-		printf("t1=%f\n",t1);
 		if ((t0 > 0.001) && (t0 < *t))
 		{
-			printf("cyl\n");
 			*t = t0;
 			return (1);
 		}
