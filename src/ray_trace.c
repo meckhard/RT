@@ -10,6 +10,7 @@ void		reset_colour(t_col *col, int r, int g, int b)
 void		cast_ray(t_env *env)
 {
 	float		hit;
+	float		temp;
 	t_sphere	*sphere;
 	t_cylinder	*cylinder;
 	t_plane		*plane;
@@ -22,8 +23,8 @@ void		cast_ray(t_env *env)
 	env->coef = 1.0;
 	while (env->coef > 0.0f)
 	{
-		loop_spheres(env, sphere, &hit);
-		loop_cylinders(env, cylinder, &hit);
+		loop_spheres(env, sphere, &hit, &temp);
+		loop_cylinders(env, cylinder, &hit, &temp);
 //		loop_planes(env, plane, &hit);
 //		loop_cones(env, cone, &hit);
 		env->coef -= 0.1f;

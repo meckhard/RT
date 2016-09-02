@@ -106,6 +106,7 @@ typedef struct	s_win
 typedef struct	s_env
 {
 	float		coef;
+	float		norm_check;
 	t_ray		r;
 	t_col		c;
 	t_light		*l[3];

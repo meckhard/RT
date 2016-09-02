@@ -17,10 +17,10 @@ void			cast_ray(t_env *env);
  * loop_objects.c
  */
 
-void			loop_spheres(t_env *env, t_sphere *sp, float *hit);
-void			loop_cylinders(t_env *env, t_cylinder *cy, float *hit);
-void			loop_planes(t_env *env, t_plane *p, float *hit);
-void			loop_cones(t_env *env, t_cone *co, float *hit);
+void			loop_spheres(t_env *env, t_sphere *sp, float *hit, float *temp);
+void			loop_cylinders(t_env *env, t_cylinder *cy, float *hit, float *temp);
+void			loop_planes(t_env *env, t_plane *p, float *hit, float *temp);
+void			loop_cones(t_env *env, t_cone *co, float *hit, float *temp);
 
 /*
  * ft_sphere.c

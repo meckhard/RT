@@ -6,34 +6,13 @@
 /*   By: meckhard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/11 12:28:09 by meckhard          #+#    #+#             */
-/*   Updated: 2016/09/02 14:51:37 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/02 16:55:19 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rtv1.h"
 
-/*void	save_col(t_env *env, t_col *col, int x, int y)
-{
-	t_col temp;
-
-	if (col->red * 255.0f < 255.0f)
-		temp.red = col->red * 255.0f;
-	else
-		temp.red = 255.0f;
-	if (col->green * 255.0f < 255.0f)
-		temp.green = col->green * 255.0f;
-	else
-		temp.green = 255.0f;
-	if (col->blue * 255.0f < 255.0f)
-		temp.blue = col->blue * 255.0f;
-	else
-		temp.blue = 255.0f;
-	env->img.data[(x + y * WIN_X) * 4 + 0] = (unsigned char)temp.r;
-	env->img.data[(x + y * WIN_X) * 4 + 1] = (unsigned char)temp.g;
-	env->img.data[(x + y * WIN_X) * 4 + 2] = (unsigned char)temp.b;
-} */
-
-void	light_ray(t_env *env, t_col *col, float t, t_vec *dist)
+void	lambert_diffusion(t_env *env, t_col *col, float t, t_vec *dist)
 {
 	t_ray	light_ray;
 	float	lambert;
@@ -51,13 +30,9 @@ void	light_ray(t_env *env, t_col *col, float t, t_vec *dist)
 
 void	light_point(t_env *env, t_col *col)
 {
-//	int		j;
 	float	t;
 	t_vec	dist;
 
-//	env->s->sp[2]->m =
-//	env->materials[env->s[env->current_sphere].shape.material];
-//	j = 0;
 	while (env->l[2])
 	{
 //		env->l[2] = env->lights[j];
@@ -97,15 +72,15 @@ void	linda(t_env *env, t_ray *r, t_col *col)
 	r->dir = vector_sub(&r->dir, &tmp);
 }
 
-void	scale(t_env *env, t_ray *r, float t)
+void	scale(t_vec *centre, t_ray *r, float t)
 {
-	t_vec	scaled;
+	t_vec	scaled_hit;
+	t_ray	temp;
 
-	scaled = vector_scale(t, &r->dir);
-	env->r.start = vector_add(&r->start, &scaled);
-	env->n =
-	vector_sub(&env->r.start, &env->s->sp[2]->centre);
-	env->temp = vector_dot(&env->n, &env->n);
+	scaled_hit = vector_scale(t, &r->dir);
+	temp.start = vector_add(&r->start, &scaled);
+	env->n = vector_sub(&temp.start, centre);
+	env->norm_check = vector_dot(&env->n, &env->n);
 }
 
 /*void	main_sphere_loop(t_env *env, t_ray *r, t_col *col)
