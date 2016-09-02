@@ -87,6 +87,16 @@ typedef struct	s_shape
 	t_plane		*p[3];
 }				t_shape;
 
+typedef struct	s_current_ray
+{
+	float		index;
+	t_sphere	sp;
+	t_cylinder	cy;
+	t_cone		co;
+	t_plane		p;
+	t_material	m;
+}				t_current_ray;
+
 typedef struct	s_img
 {
 	void		*img;
@@ -105,12 +115,14 @@ typedef struct	s_win
 
 typedef struct	s_env
 {
-	float		coef;
-	float		norm_check;
-	t_ray		r;
-	t_col		c;
-	t_light		*l[3];
-	t_shape		*s;
+	float			coef;
+	float			norm_check;
+	t_current_ray	cr;
+	t_material		m;
+	t_ray			r;
+	t_col			c;
+	t_light			*l[3];
+	t_shape			s;
 }				t_env;
 
 #endif

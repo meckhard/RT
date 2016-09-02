@@ -18,13 +18,16 @@ void			loop_spheres(t_env *env, t_sphere *sp, float *hit, float *temp)
 		*temp = 200000.0f;
 		if (sphere_intersect(&env->r, sp, temp) == 1)
 		{
-			if (dist_of_intersect(hit, temp) == -1)
+			if ((dist_of_intersect(hit, temp) == -1) && sp->next != NULL)
 			{
 				sp = sp->next;
 				continue;
 			}
-			reset_colour(&env->c, sp->m.diffuse.r, \
-					sp->m.diffuse.g, sp->m.diffuse.b);
+			else
+			{
+				reset_colour(&env->c, sp->m.diffuse.r, \
+						sp->m.diffuse.g, sp->m.diffuse.b);
+			}
 		}
 		if (*temp == 200000.0f)
 			*hit = 200000.0f;
@@ -40,7 +43,7 @@ void			loop_cylinders(t_env *env, t_cylinder *cy, float *hit, float *temp)
 		*temp = 200000.0f;
 		if (cylinder_intersect(&env->r, cy, temp) == 1)
 		{
-			if (dist_of_intersect(hit, temp) == -1)
+			if ((dist_of_intersect(hit, temp) == -1) && (cy->next != NULL))
 			{
 				cy = cy->next;
 				continue;

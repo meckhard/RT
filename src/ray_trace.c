@@ -16,10 +16,10 @@ void		cast_ray(t_env *env)
 	t_plane		*plane;
 	t_cone		*cone;
 
-	sphere = env->s->sp[2];
-	cylinder = env->s->cy[2];
-	plane = env->s->p[2];
-	cone = env->s->co[2];
+	sphere = env->s.sp[2];
+	cylinder = env->s.cy[2];
+	plane = env->s.p[2];
+	cone = env->s.co[2];
 	env->coef = 1.0;
 	while (env->coef > 0.0f)
 	{
