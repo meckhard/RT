@@ -40,11 +40,11 @@ void			loop_cylinders(t_env *env, t_cylinder *cy, float *hit, float *temp)
 		*temp = 200000.0f;
 		if (cylinder_intersect(&env->r, cy, temp) == 1)
 		{
-			if (dist_of_intersect(hit, temp) == -1)
-			{
-				cy = cy->next;
-				continue;
-			}
+//			if (dist_of_intersect(hit, temp) == -1)
+//			{
+//				cy = cy->next;
+//				continue;
+//			}
 			reset_colour(&env->c, cy->m.diffuse.r, \
 					cy->m.diffuse.g, cy->m.diffuse.b);
 		}
