@@ -17,10 +17,21 @@ void			cast_ray(t_env *env);
  * loop_objects.c
  */
 
+void			reset_centre(t_vec *centre, float x, float y, float z);
 void			loop_spheres(t_env *env, t_sphere *sp, float *hit, float *temp);
 void			loop_cylinders(t_env *env, t_cylinder *cy, float *hit, float *temp);
 void			loop_planes(t_env *env, t_plane *p, float *hit, float *temp);
 void			loop_cones(t_env *env, t_cone *co, float *hit, float *temp);
+
+/*
+ * lighting.c
+ */
+
+void			lambert_diffusion(t_intersect *sct, t_env *env, float t, t_vec *dist);
+void			scale(t_vec *centre, t_env *env, float t);
+void			lighting(t_intersect *sct, t_env *env, float *reflect);
+void			light_point(t_intersect *sct, t_env *env);
+
 
 /*
  * ft_sphere.c

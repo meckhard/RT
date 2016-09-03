@@ -113,16 +113,22 @@ typedef struct	s_win
 	t_img	img;
 }				t_win;
 
+typedef struct	s_intersect
+{
+	t_vec	normal;
+	t_vec	intersect;
+	float	norm_check;
+}				t_intersect;
+
 typedef struct	s_env
 {
 	float			coef;
-	float			norm_check;
-	t_current_ray	cr;
-	t_material		m;
+	float			reflect;
 	t_ray			r;
 	t_col			c;
 	t_light			*l[3];
 	t_shape			s;
+	t_vec			centre;
 }				t_env;
 
 #endif

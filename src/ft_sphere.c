@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 09:10:33 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/09/02 13:29:14 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/03 09:46:51 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		sphere_intersect(t_ray *r, t_sphere *sp, float *t)
 		if (t0 > 0.001f && t0 < *t)
 		{
 			*t = t0;
+			*t = *t + sp->centre.z;
 			//printf("yes");
 			return (1);
 		}

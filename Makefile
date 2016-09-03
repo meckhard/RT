@@ -30,6 +30,7 @@ SRC =	$(SRC_PATH)main.c					\
 		$(SRC_PATH)key_hook.c				\
 		$(SRC_PATH)ray_trace.c				\
 		$(SRC_PATH)loop_objects.c			\
+		$(SRC_PATH)lighting.c				\
 		$(SRC_PATH)ft_sphere.c				\
 		$(SRC_PATH)ft_cylinder.c
 
