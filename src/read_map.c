@@ -13,7 +13,7 @@ void	read_map(const int fd, t_env *env)
 
 void	search_map(const int fd, char *line, t_env *env)
 {
-	env->s = (t_shape *)malloc(sizeof(t_shape));
+//	env->s = (t_shape *)malloc(sizeof(t_shape));
 	set_nodes(env);
 	while (get_next_line(fd, &line) != 0)
 	{
@@ -44,17 +44,17 @@ void	search_map(const int fd, char *line, t_env *env)
 void	create_environment(t_env *env)
 {
 	env->l[2] = env->l[0];
-	env->s->sp[2] = env->s->sp[0];
-	env->s->cy[2] = env->s->cy[0];
-	env->s->co[2] = env->s->co[0];
-	env->s->p[2] = env->s->p[0];
+	env->s.sp[2] = env->s.sp[0];
+	env->s.cy[2] = env->s.cy[0];
+	env->s.co[2] = env->s.co[0];
+	env->s.p[2] = env->s.p[0];
 }
 
 void	set_nodes(t_env *env)
 {
 	env->l[1] = 0;
-	env->s->sp[1] = 0;
-	env->s->cy[1] = 0;
-	env->s->co[1] = 0;
-	env->s->p[1] = 0;
+	env->s.sp[1] = 0;
+	env->s.cy[1] = 0;
+	env->s.co[1] = 0;
+	env->s.p[1] = 0;
 }
