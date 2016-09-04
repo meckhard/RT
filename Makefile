@@ -32,6 +32,7 @@ SRC =	$(SRC_PATH)main.c					\
 		$(SRC_PATH)loop_objects.c			\
 		$(SRC_PATH)lighting.c				\
 		$(SRC_PATH)ft_sphere.c				\
+		$(SRC_PATH)ft_cone.c				\
 		$(SRC_PATH)ft_cylinder.c
 
 OBJ = $(SRC:.c=.o)

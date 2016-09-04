@@ -16,7 +16,7 @@ void		cast_ray(t_env *env)
 	t_plane		*plane;
 	t_cone		*cone;
 
-	sct = NULL;
+	//sct = NULL;
 	sphere = env->s.sp[2];
 	cylinder = env->s.cy[2];
 	plane = env->s.p[2];
@@ -29,14 +29,15 @@ void		cast_ray(t_env *env)
 		loop_spheres(env, sphere, &hit, &temp);
 //		loop_cylinders(env, cylinder, &hit, &temp);
 //		loop_planes(env, plane, &hit);
-//		loop_cones(env, cone, &hit);
+		loop_cones(env, cone, &hit, &temp);
 //		if (hit != 20000.0f)
 //			printf("%f  ", hit);
 		if (hit == 20000.0f)
 			break ;
-		if (scale(&env->centre, env, hit) == -1)
-			break ;
-		lighting(sct, env, &env->reflect);
+		scale(&env->centre, env, hit);
+//		if (scale(&env->centre, env, hit) == -1)
+//			break ;
+		//lighting(sct, env, &env->reflect);
 		env->coef -= 0.1f;
 	}
 }

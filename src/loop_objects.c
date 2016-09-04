@@ -77,8 +77,9 @@ void			loop_spheres(t_env *env, t_sphere *sp, float *hit, float *temp)
 	}
 }*/
 
-/*void			loop_cones(t_env *env, t_cone *co, float *hit)
+void			loop_cones(t_env *env, t_cone *co, float *hit, float *t)
 {
+	(void)t;
 	while (co)
 	{
 		*hit = 200000.0f;
@@ -89,4 +90,4 @@ void			loop_spheres(t_env *env, t_sphere *sp, float *hit, float *temp)
 		}
 		co = co->next;
 	}
-}*/
+}
